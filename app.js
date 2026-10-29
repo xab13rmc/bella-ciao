@@ -178,7 +178,6 @@
     var host = document.getElementById("menu-body");
     var index = document.getElementById("menu-index");
     var title = document.getElementById("menu-title");
-    var intro = document.getElementById("menu-intro");
     if (!host) return;
     lastTab = "";
     var list = items();
@@ -186,11 +185,6 @@
     host.innerHTML = "";
     if (index) index.innerHTML = "";
     if (title) title.textContent = state.channel === "delivery" ? t("ch.take") : t("ch.rest");
-    if (intro) {
-      intro.textContent = state.channel === "delivery"
-        ? t("house.p2")
-        : list.length + " plats · " + cats.length + " seccions.";
-    }
     cats.forEach(function (c, i) {
       var rows = list.filter(function (d) { return d.cat === c; }).sort(function (a, b) { return a.orden - b.orden; });
       var block = document.createElement("section");
@@ -227,6 +221,29 @@
     });
     var h = document.querySelector(".site-header");
     if (h) document.documentElement.style.setProperty("--header-h", h.offsetHeight + "px");
+    snapPills();
+  }
+  function snapPills(instant) {
+    document.querySelectorAll(".seg, .langs").forEach(function (group) {
+      var on = group.querySelector("[aria-pressed='true']");
+      if (!on) return;
+      var thumb = group.querySelector(".pill-thumb");
+      if (!thumb) {
+        thumb = document.createElement("span");
+        thumb.className = "pill-thumb";
+        thumb.setAttribute("aria-hidden", "true");
+        group.insertBefore(thumb, group.firstChild);
+        instant = true;
+      }
+      if (instant) thumb.style.transition = "none";
+      thumb.style.width = on.offsetWidth + "px";
+      thumb.style.height = on.offsetHeight + "px";
+      thumb.style.transform = "translate(" + on.offsetLeft + "px," + on.offsetTop + "px)";
+      if (instant) {
+        thumb.getBoundingClientRect();
+        thumb.style.transition = "";
+      }
+    });
   }
   function cookies() {
     var bar = document.getElementById("cookie");
@@ -321,7 +338,7 @@
     function ready(data) { menu = data || []; paint(); }
     if (window.BC_MENU) ready(window.BC_MENU);
     else fetch("menu.json").then(function (r) { return r.json(); }).then(ready).catch(function () { ready([]); });
-    window.addEventListener("resize", function () { translate(); markNav(); markCartaSection(); });
+    window.addEventListener("resize", function () { translate(); markNav(); markCartaSection(); snapPills(true); });
     window.addEventListener("scroll", function () { markNav(); markCartaSection(); }, { passive: true });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);

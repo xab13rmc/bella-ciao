@@ -150,13 +150,32 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
 .nav-links a.is-active { color: var(--wine); }
 
 .switchers { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.seg { display: flex; padding: 3px; gap: 2px; background: var(--cream); border-radius: var(--radius); }
+.seg, .langs { position: relative; isolation: isolate; }
+.pill-thumb {
+  position: absolute;
+  top: 0; left: 0;
+  border-radius: var(--radius);
+  background: var(--ink);
+  pointer-events: none;
+  z-index: 0;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), width 0.28s cubic-bezier(0.22, 1, 0.36, 1), height 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.seg {
+  display: flex;
+  padding: 3px;
+  gap: 2px;
+  background: var(--cream);
+  border-radius: var(--radius);
+}
 .seg button {
+  position: relative;
+  z-index: 1;
   border: 0; background: transparent; cursor: pointer;
   border-radius: var(--radius); padding: 7px 12px;
   font: 600 12px/1 var(--sans); color: var(--ink-soft);
+  transition: color 0.2s ease;
 }
-.seg button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.seg button[aria-pressed="true"] { color: #fff; }
 .langs {
   display: flex;
   align-items: center;
@@ -169,6 +188,8 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
 .langs button {
   appearance: none;
   -webkit-appearance: none;
+  position: relative;
+  z-index: 1;
   border: 0;
   background: transparent;
   cursor: pointer;
@@ -178,9 +199,9 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
   border-radius: var(--radius);
   font: 600 12px/1 var(--sans);
   color: var(--ink-soft);
+  transition: color 0.2s ease;
 }
 .langs button[aria-pressed="true"] {
-  background: var(--ink);
   color: var(--paper);
 }
 
@@ -261,14 +282,22 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
   position: sticky;
   top: var(--header-h);
   z-index: 45;
-  background: var(--bg);
+  background: rgba(233,221,208,0.94);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
   border-bottom: 1px solid var(--line);
   padding-top: 10px;
 }
-.carta-switch { margin-bottom: 10px; }
+.carta-tools {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.carta-tools .seg { flex: 1 1 240px; max-width: 420px; }
+.carta-tools .seg button { flex: 1; min-height: 40px; text-transform: uppercase; letter-spacing: 0.08em; }
 .carta-sticky + .wrap { padding-top: 20px; }
-.carta-switch .seg { width: 100%; max-width: 420px; }
-.carta-switch .seg button { flex: 1; min-height: 40px; text-transform: uppercase; letter-spacing: 0.08em; }
 .index {
   display: flex;
   gap: 8px;
@@ -324,6 +353,19 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
 .footer-brand p { margin: 0; font-size: 14px; color: #8e8e93; }
 .footer-col h4 { font: 600 11px/1 var(--sans); letter-spacing: 0.16em; color: #8e8e93; margin: 0 0 12px; }
 .footer-col a, .footer-col span { display: block; font-size: 14px; color: #d2d2d7; text-decoration: none; margin-bottom: 8px; }
+.socials { display: flex; flex-wrap: wrap; gap: 10px; }
+.social {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 14px;
+  margin: 0 !important;
+  border-radius: var(--radius);
+  background: #2a2c2a;
+  color: #fff !important;
+  font: 600 13px/1 var(--sans);
+}
 .footer-bottom { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 28px; padding-top: 16px; border-top: 1px solid #3a3a3c; font-size: 12px; color: #8e8e93; }
 
 .page-head { padding-block: 32px 8px; }
@@ -353,7 +395,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
   .split, .visit { grid-template-columns: 1fr 1fr; align-items: center; }
   .split img, .visit iframe { height: 360px; }
   .gallery { grid-template-columns: 1fr 1fr; }
-  .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
   .footer-jobs { flex-direction: row; align-items: center; justify-content: space-between; }
   .hero-actions .btn { flex: 1 1 auto; width: auto; }
   .cookie { left: 50%; right: auto; width: min(520px, calc(100% - 32px)); transform: translateX(-50%); }

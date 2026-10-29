@@ -427,6 +427,7 @@
         if (!panel) return;
         var open = panel.classList.toggle("is-open");
         toggle.setAttribute("aria-expanded", String(open));
+        if (open) document.body.classList.remove("is-nav-away");
       }
     });
   }
@@ -458,6 +459,8 @@
     s.onerror = function () {};
     document.head.appendChild(s);
     var spyTick = 0;
+    var lastY = window.scrollY;
+    var navAway = false;
     window.addEventListener("resize", function () { translate(); markNav(); markCartaSection(); snapPills(true); });
     window.addEventListener("scroll", function () {
       if (spyTick) return;
@@ -465,6 +468,16 @@
         spyTick = 0;
         markNav();
         markCartaSection();
+        if (document.body.classList.contains("page-carta")) {
+          var y = window.scrollY;
+          var panel = document.getElementById("navPanel");
+          var menuOpen = panel && panel.classList.contains("is-open");
+          if (menuOpen || y < 48) navAway = false;
+          else if (y > lastY + 6 && y > 72) navAway = true;
+          else if (y < lastY - 6) navAway = false;
+          document.body.classList.toggle("is-nav-away", navAway);
+          lastY = y;
+        }
       });
     }, { passive: true });
   }

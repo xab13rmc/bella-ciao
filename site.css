@@ -96,6 +96,11 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
   backdrop-filter: saturate(180%) blur(16px);
   -webkit-backdrop-filter: saturate(180%) blur(16px);
   border-bottom: 1px solid var(--line);
+  transition: transform 0.28s cubic-bezier(0.32, 0.72, 0, 1);
+}
+.page-carta.is-nav-away .site-header {
+  transform: translateY(-100%);
+  pointer-events: none;
 }
 .site-header::after {
   content: "";
@@ -340,7 +345,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
 .section-head > div { display: flex; flex-direction: column; gap: 10px; }
 
 .menu-panel, .menu-body { background: var(--paper); border-radius: 20px; padding: 20px 18px; }
-.menu-block { margin-bottom: 36px; scroll-margin-top: calc(var(--header-h) + var(--carta-bar, 120px) + 8px); }
+.menu-block { margin-bottom: 36px; scroll-margin-top: calc(var(--header-offset, var(--header-h)) + var(--carta-bar, 120px) + 8px); }
 .menu-block:last-child { margin-bottom: 0; }
 .block-head h3 {
   font: 600 13px/1.2 var(--sans);
@@ -359,13 +364,20 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
 
 .carta-sticky {
   position: sticky;
-  top: var(--header-h);
+  top: var(--header-offset, var(--header-h));
   z-index: 45;
+  transition: top 0.28s cubic-bezier(0.32, 0.72, 0, 1);
   background: rgba(233,221,208,0.94);
   backdrop-filter: saturate(180%) blur(16px);
   -webkit-backdrop-filter: saturate(180%) blur(16px);
   border-bottom: 1px solid var(--line);
   padding-top: 14px;
+}
+.page-carta.is-nav-away {
+  --header-offset: 0px;
+}
+.page-carta.is-nav-away .carta-sticky {
+  z-index: 61;
 }
 .carta-tools {
   display: flex;

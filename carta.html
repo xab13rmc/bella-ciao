@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Carta · Bella Ciao</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="site.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <img src="images/logo-bella-ciao.png" alt="Bella Ciao" width="44" height="44">
+        <span>CUCINA ITALIANA · ANDORRA</span>
+      </a>
+      <nav class="nav-links desktop-only">
+        <a href="carta.html" class="is-active" data-i18n="nav.menu">La carta</a>
+        <a href="index.html#casa" data-i18n="nav.house">El restaurant</a>
+        <a href="index.html#visitanos" data-i18n="nav.visit">Com arribar</a>
+      </nav>
+      <div class="seg desktop-only">
+        <button type="button" data-channel="restaurant" aria-pressed="true" data-i18n="ch.rest">Restaurant</button>
+        <button type="button" data-channel="delivery" aria-pressed="false" data-i18n="ch.take">Per emportar</button>
+      </div>
+      <div class="langs">
+        <button type="button" data-lang="cat" aria-pressed="true">CA</button>
+        <button type="button" data-lang="es">ES</button>
+        <button type="button" data-lang="fr">FR</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <a class="btn btn-dark btn-call" href="tel:+376826024"><span data-i18n="call">Trucar</span></a>
+      <button class="nav-toggle" type="button" id="navToggle" aria-expanded="false" aria-label="Menú"><span></span><span></span></button>
+    </div>
+    <div class="header-panel" id="navPanel">
+      <nav class="nav-links">
+        <a href="carta.html" data-i18n="nav.menu">La carta</a>
+        <a href="index.html#casa" data-i18n="nav.house">El restaurant</a>
+        <a href="index.html#visitanos" data-i18n="nav.visit">Com arribar</a>
+      </nav>
+      <div class="switchers">
+        <div class="seg">
+          <button type="button" data-channel="restaurant" aria-pressed="true" data-i18n="ch.rest">Restaurant</button>
+          <button type="button" data-channel="delivery" aria-pressed="false" data-i18n="ch.take">Per emportar</button>
+        </div>
+        <div class="langs">
+          <button type="button" data-lang="cat" aria-pressed="true">CA</button>
+          <button type="button" data-lang="es">ES</button>
+          <button type="button" data-lang="fr">FR</button>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow" data-i18n="menu.k">LA CARTA</p>
+      <h1 class="h-section" id="menu-title">Restaurant</h1>
+      <p class="lead" id="menu-intro"></p>
+    </div>
+  </section>
+  <div class="wrap">
+    <nav class="index" id="menu-index" aria-label="Categories"></nav>
+    <div id="menu-body" class="menu-panel"></div>
+    <p class="notice" data-i18n="menu.allergen">Al·lèrgens pendent de validació al catàleg. Consulteu-nos al local.</p>
+  </div>
+
+  <footer class="site-footer" style="margin-top:48px">
+    <div class="wrap">
+      <div class="footer-jobs">
+        <div>
+          <h4 data-i18n="jobs.k">TREBALLA AMB NOSALTRES</h4>
+          <p data-i18n="jobs.p">Envia el teu CV a staffandorra@andorra.ad.</p>
+        </div>
+        <a class="btn btn-wine" href="mailto:staffandorra@andorra.ad" data-i18n="jobs.cta">Enviar CV</a>
+      </div>
+      <div class="footer-bottom">
+        <a href="index.html">Bella Ciao</a>
+        <a href="privadesa.html" data-i18n="nav.privacy">Privadesa</a>
+        <a href="tel:+376826024">+376 826 024</a>
+      </div>
+    </div>
+  </footer>
+  <script src="menu-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

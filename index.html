@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Bella Ciao · Cucina italiana a Santa Coloma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="site.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <img src="images/logo-bella-ciao.png" alt="Bella Ciao" width="44" height="44">
+        <span>CUCINA ITALIANA · ANDORRA</span>
+      </a>
+      <nav class="nav-links desktop-only" aria-label="Principal">
+        <a href="carta.html" data-i18n="nav.menu">La carta</a>
+        <a href="#casa" data-i18n="nav.house">El restaurant</a>
+        <a href="#visitanos" data-i18n="nav.visit">Com arribar</a>
+      </nav>
+      <div class="seg desktop-only" role="group" aria-label="Canal">
+        <button type="button" data-channel="restaurant" aria-pressed="true" data-i18n="ch.rest">Restaurant</button>
+        <button type="button" data-channel="delivery" aria-pressed="false" data-i18n="ch.take">Per emportar</button>
+      </div>
+      <div class="langs" role="group" aria-label="Idioma">
+        <button type="button" data-lang="cat" aria-pressed="true">CA</button>
+        <button type="button" data-lang="es" aria-pressed="false">ES</button>
+        <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn btn-dark btn-call" href="tel:+376826024">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span data-i18n="call">Trucar</span>
+      </a>
+      <button class="nav-toggle" type="button" id="navToggle" aria-expanded="false" aria-label="Menú">
+        <span></span><span></span>
+      </button>
+    </div>
+    <div class="header-panel" id="navPanel">
+      <nav class="nav-links">
+        <a href="carta.html" data-i18n="nav.menu">La carta</a>
+        <a href="#casa" data-i18n="nav.house">El restaurant</a>
+        <a href="#visitanos" data-i18n="nav.visit">Com arribar</a>
+      </nav>
+      <div class="switchers">
+        <div class="seg">
+          <button type="button" data-channel="restaurant" aria-pressed="true" data-i18n="ch.rest">Restaurant</button>
+          <button type="button" data-channel="delivery" aria-pressed="false" data-i18n="ch.take">Per emportar</button>
+        </div>
+        <div class="langs">
+          <button type="button" data-lang="cat" aria-pressed="true">CA</button>
+          <button type="button" data-lang="es">ES</button>
+          <button type="button" data-lang="fr">FR</button>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" style="background-image:url('images/pizza-hero.jpg')">
+    <div class="wrap hero-inner">
+      <p class="eyebrow">TRATTORIA · SANTA COLOMA</p>
+      <h1 class="h-display" data-i18n="hero.title">La taula italiana, a casa vostra.</h1>
+      <p data-i18n="hero.sub">Plats cuinats amb cura, servei atent i ambient acollidor. Carta en català, castellà, francès i anglès.</p>
+      <div class="hero-actions">
+        <a class="btn btn-wine" href="carta.html" data-i18n="hero.cta">Veure la carta</a>
+        <a class="btn btn-ghost-light" href="tel:+376826024">+376 826 024</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="badges">
+    <div class="wrap">
+      <span>★ 4,8 · 229 GOOGLE</span>
+      <span data-i18n="badge.dine">MENJAR AL LOCAL</span>
+      <span data-i18n="badge.take">PER EMPORTAR</span>
+      <span>AV. D'ENCLAR 84</span>
+    </div>
+  </div>
+
+  <section class="info">
+    <div class="wrap">
+      <div class="info-cell">
+        <div class="label" data-i18n="info.addr">ADREÇA</div>
+        <strong>Av. d'Enclar, 84 · Ed. Pic de Casamanya</strong>
+        <small>AD500 Andorra la Vella</small>
+        <a href="#visitanos" data-i18n="info.how">Com arribar</a>
+      </div>
+      <div class="info-cell">
+        <div class="label" data-i18n="info.hours">HORARI</div>
+        <strong data-i18n="info.hoursV">Dt – ds · 13:00–16:00 / 19:30–22:30</strong>
+        <small data-i18n="info.closed">Tancat diumenges i dilluns · fitxa de Google</small>
+      </div>
+      <div class="info-cell">
+        <div class="label" data-i18n="info.tel">TELÈFON</div>
+        <strong>+376 826 024</strong>
+        <small data-i18n="info.telN">Reserves i comandes per emportar</small>
+        <a href="tel:+376826024" data-i18n="info.call">Trucar ara</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="carta">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow" data-i18n="menu.k">LA CARTA</p>
+          <h2 class="h-section" data-i18n="menu.t">Cuina italiana, sense dreceres.</h2>
+          <p class="lead" data-i18n="menu.p">Carta digital del catàleg intern. Sense botons de compra: és una carta de restaurant.</p>
+        </div>
+        <a class="btn btn-dark" href="carta.html" data-i18n="menu.more">Veure tota la carta</a>
+      </div>
+      <div id="preview-panel" class="menu-panel"></div>
+    </div>
+  </section>
+
+  <section class="section section-dark" id="casa">
+    <div class="wrap split">
+      <img src="images/google-interior.jpg" alt="Interior Bella Ciao">
+      <div class="stack">
+        <p class="eyebrow" data-i18n="house.k">EL RESTAURANT</p>
+        <h2 class="h-section" data-i18n="house.t">Sala petita, cuina italiana, tracte de casa.</h2>
+        <p class="lead" data-i18n="house.p">Bella Ciao és la pizzeria italiana de confiança a Santa Coloma: plats cuinats amb cura, servei atent i ambient acollidor.</p>
+        <p data-i18n="house.p2">A la fitxa de Google: menjar al local i per emportar. No consta lliurament a domicili.</p>
+      </div>
+    </div>
+    <div class="wrap gallery" style="margin-top:20px">
+      <img src="images/google-wide.jpg" alt="">
+      <img src="images/platter.jpg" alt="">
+      <img src="images/focaccia.png" alt="">
+      <img src="images/google-food1.jpg" alt="">
+    </div>
+  </section>
+
+  <section class="section" id="visitanos">
+    <div class="wrap visit">
+      <div>
+        <p class="eyebrow" data-i18n="visit.k">COM ARRIBAR</p>
+        <h2 class="h-section" data-i18n="visit.t">Santa Coloma, a peu de l’avinguda d’Enclar.</h2>
+        <p class="lead">Av d'Enclar, Ed. Pic de Casamanya, 84, local A<br>AD500 Andorra la Vella<br>Plus Code: FFWX+84</p>
+        <div class="hours">
+          <div class="hours-row"><span data-i18n="day.mon">Dilluns</span><em data-i18n="closed">Tancat</em></div>
+          <div class="hours-row"><strong data-i18n="day.tue">Dimarts – Dissabte</strong><span>13:00–16:00 · 19:30–22:30</span></div>
+          <div class="hours-row"><span data-i18n="day.sun">Diumenge</span><em data-i18n="closed">Tancat</em></div>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-wine" href="tel:+376826024">+376 826 024</a>
+          <a class="btn btn-ghost-dark" href="https://www.google.com/maps/search/?api=1&query=Bella+Ciao+Santa+Coloma+Andorra" target="_blank" rel="noopener" data-i18n="visit.maps">Obrir a Google Maps</a>
+        </div>
+      </div>
+      <iframe title="Mapa Bella Ciao" src="https://maps.google.com/maps?q=Bella+Ciao+Santa+Coloma+Andorra&hl=ca&z=17&output=embed" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-jobs" id="equip">
+        <div>
+          <h4 data-i18n="jobs.k">TREBALLA AMB NOSALTRES</h4>
+          <p data-i18n="jobs.p">Envia el teu CV a staffandorra@andorra.ad. No recollim candidatures en un formulari intern.</p>
+        </div>
+        <a class="btn btn-wine" href="mailto:staffandorra@andorra.ad" data-i18n="jobs.cta">Enviar CV</a>
+      </div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo-bella-ciao.png" alt="Bella Ciao" width="52" height="52">
+          <p data-i18n="foot.tag">Cuina italiana a Santa Coloma, Andorra.</p>
+        </div>
+        <div class="footer-col">
+          <h4>CONTACTE</h4>
+          <a href="tel:+376826024">+376 826 024</a>
+          <span>Av. d'Enclar, 84</span>
+          <a href="https://www.instagram.com/bellaciao.and/" target="_blank" rel="noopener">@bellaciao.and</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="nav.menu">CARTA</h4>
+          <a href="carta.html" data-i18n="ch.rest">Restaurant</a>
+          <a href="carta.html?canal=delivery" data-i18n="ch.take">Per emportar</a>
+          <a href="privadesa.html" data-i18n="nav.privacy">Privadesa</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Bella Ciao</span>
+        <span data-i18n="foot.iva">Preus en euros, IVA inclòs.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cookie" id="cookie" hidden>
+    <h2 data-i18n="cookie.t">Galetes</h2>
+    <p data-i18n="cookie.p">Fem servir galetes tècniques per mostrar la carta. Les opcionals només s’activen si ho accepteu. Rebutjar és tan fàcil com acceptar. Llei 29/2021 (LQPD) i APDA.</p>
+    <div class="cookie-actions">
+      <button class="btn btn-wine" type="button" data-cookie="all" data-i18n="cookie.ok">Acceptar opcionals</button>
+      <button class="btn btn-ghost-dark" type="button" data-cookie="needed" data-i18n="cookie.no">Només les necessàries</button>
+    </div>
+    <p><a href="privadesa.html" data-i18n="cookie.read">Llegir la política de privadesa</a></p>
+  </div>
+
+  <script src="menu-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

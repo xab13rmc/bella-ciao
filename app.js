@@ -42,6 +42,7 @@
     "house.t": {cat:"Sala petita, cuina italiana, tracte de casa.",es:"Sala pequeña, cocina italiana, trato de casa.",fr:"Petite salle, cuisine italienne, accueil de maison.",en:"A small room, Italian cooking, house hospitality."},
     "house.p": {cat:"Bella Ciao és la pizzeria italiana de confiança a Santa Coloma: plats cuinats amb cura, servei atent i ambient acollidor.",es:"Bella Ciao es la pizzería italiana de confianza en Santa Coloma.",fr:"Bella Ciao est la pizzeria italienne de confiance à Santa Coloma.",en:"Bella Ciao is Santa Coloma’s trusted Italian pizzeria."},
     "house.p2": {cat:"A la fitxa de Google: menjar al local i per emportar. No consta lliurament a domicili.",es:"En la ficha de Google: comer en el local y para llevar. No consta entrega a domicilio.",fr:"Sur Google : sur place et à emporter. Pas de livraison à domicile.",en:"Google lists dine-in and takeaway. No home delivery."},
+    "house.cta": {cat:"Conèixer el restaurant →",es:"Conocer el restaurante →",fr:"Découvrir le restaurant →",en:"Discover the restaurant →"},
     "visit.k": {cat:"COM ARRIBAR",es:"CÓMO LLEGAR",fr:"ACCÈS",en:"FIND US"},
     "visit.t": {cat:"Santa Coloma, a peu de l’avinguda d’Enclar.",es:"Santa Coloma, a pie de la avenida d’Enclar.",fr:"Santa Coloma, au pied de l’avinguda d’Enclar.",en:"Santa Coloma, on Avinguda d’Enclar."},
     "visit.maps": {cat:"Obrir a Google Maps",es:"Abrir en Google Maps",fr:"Ouvrir dans Google Maps",en:"Open in Google Maps"},

@@ -70,6 +70,16 @@
 
   var state = { lang: "cat", channel: "restaurant" };
   var menu = [];
+  var SHEET_ID = "1hmqH7DUOsLqShReGywm1i2qxcRQmpBXnSurG-7_h038";
+  var SHEET_TAB = "MAESTRA";
+  var PHOTOS = {
+    "BC-002": "focaccia.png",
+    "BC-006": "burrata.jpg",
+    "BC-012": "google-wide.jpg",
+    "BC-037": "google-wide.jpg",
+    "BC-046": "focaccia.png",
+    "BC-SUP-009": "burrata.jpg"
+  };
 
   function money(n) {
     if (n == null || n === 0) {
@@ -88,7 +98,74 @@
     });
   }
   function catsOf(list) {
-    return CAT_ORDER.filter(function (c) { return list.some(function (d) { return d.cat === c; }); });
+    var known = CAT_ORDER.filter(function (c) { return list.some(function (d) { return d.cat === c; }); });
+    var extra = [];
+    list.forEach(function (d) {
+      if (d.cat && CAT_ORDER.indexOf(d.cat) < 0 && extra.indexOf(d.cat) < 0) extra.push(d.cat);
+    });
+    return known.concat(extra);
+  }
+  function sheetCell(row, idx, name) {
+    var i = idx[name];
+    if (i == null) return null;
+    return (row.c || [])[i];
+  }
+  function sheetVal(cell) {
+    if (!cell) return null;
+    return cell.v;
+  }
+  function sheetStr(cell) {
+    var v = sheetVal(cell);
+    return v == null ? "" : String(v).trim();
+  }
+  function sheetNum(cell) {
+    var v = sheetVal(cell);
+    if (typeof v === "number") return v;
+    var t = String(v || "").replace(/€/g, "").replace(/\s/g, "").replace(",", ".");
+    var n = parseFloat(t);
+    return isNaN(n) ? 0 : n;
+  }
+  function sheetFlag(cell) {
+    var v = sheetVal(cell);
+    if (typeof v === "boolean") return v;
+    return String(v == null ? "" : v).toUpperCase() === "TRUE";
+  }
+  function rowsFromSheet(table) {
+    var idx = {};
+    (table.cols || []).forEach(function (col, i) {
+      var label = (col.label || "").trim();
+      if (label) idx[label] = i;
+    });
+    var out = [];
+    (table.rows || []).forEach(function (row) {
+      var id = sheetStr(sheetCell(row, idx, "ID"));
+      if (!id || !sheetFlag(sheetCell(row, idx, "Web"))) return;
+      var item = {
+        id: id,
+        orden: sheetNum(sheetCell(row, idx, "Orden")),
+        cat: sheetStr(sheetCell(row, idx, "Categoria")),
+        name: {
+          cat: sheetStr(sheetCell(row, idx, "Nombre_CAT")),
+          es: sheetStr(sheetCell(row, idx, "Nombre_ES")),
+          fr: sheetStr(sheetCell(row, idx, "Nombre_FR")),
+          en: sheetStr(sheetCell(row, idx, "Nombre_EN"))
+        },
+        desc: {
+          cat: sheetStr(sheetCell(row, idx, "Descripcion_CAT")),
+          es: sheetStr(sheetCell(row, idx, "Descripcion_ES")),
+          fr: sheetStr(sheetCell(row, idx, "Descripcion_FR")),
+          en: sheetStr(sheetCell(row, idx, "Descripcion_EN"))
+        },
+        priceR: sheetNum(sheetCell(row, idx, "Precio_restaurante_EUR")),
+        priceT: sheetNum(sheetCell(row, idx, "Precio_delivery_EUR")),
+        takeaway: sheetFlag(sheetCell(row, idx, "Delivery_TakeAway"))
+      };
+      var img = sheetStr(sheetCell(row, idx, "Imagen_URL")) || PHOTOS[id];
+      if (img) item.photo = img;
+      out.push(item);
+    });
+    out.sort(function (a, b) { return a.orden - b.orden || a.id.localeCompare(b.id); });
+    return out;
   }
   function row(d) {
     var name = d.name[state.lang] || d.name.cat;
@@ -361,8 +438,27 @@
     cookies();
     translate();
     function ready(data) { menu = data || []; paint(); }
-    if (window.BC_MENU) ready(window.BC_MENU);
-    else fetch("menu.json").then(function (r) { return r.json(); }).then(ready).catch(function () { ready([]); });
+    function fallback() {
+      if (window.BC_MENU && window.BC_MENU.length) ready(window.BC_MENU);
+      else fetch("menu.json").then(function (r) { return r.json(); }).then(ready).catch(function () { ready([]); });
+    }
+    fallback();
+    var liveApplied = false;
+    window.BC_onSheet = function (res) {
+      try {
+        if (!res || res.status !== "ok" || !res.table) return;
+        var parsed = rowsFromSheet(res.table);
+        if (parsed.length) {
+          liveApplied = true;
+          ready(parsed);
+        }
+      } catch (err) {}
+    };
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/gviz/tq?tqx=out:json;responseHandler:BC_onSheet&sheet=" + encodeURIComponent(SHEET_TAB) + "&_=" + Date.now();
+    s.onerror = function () {};
+    document.head.appendChild(s);
     var spyTick = 0;
     window.addEventListener("resize", function () { translate(); markNav(); markCartaSection(); snapPills(true); });
     window.addEventListener("scroll", function () {

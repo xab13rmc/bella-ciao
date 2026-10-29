@@ -2079,8 +2079,8 @@
                   "type": "text",
                   "id": "G3pYVF",
                   "name": "Hero kicker",
-                  "fill": "$gold",
-                  "content": "SANTA COLOMA · ANDORRA",
+                  "fill": "#F3E6C8",
+                  "content": "TRATTORIA · SANTA COLOMA",
                   "fontFamily": "$font-body",
                   "fontSize": 12,
                   "fontWeight": "normal",
@@ -2518,12 +2518,11 @@
           "width": "fill_container",
           "fill": "$stone",
           "layout": "vertical",
-          "gap": 20,
+          "gap": 12,
           "padding": [
-            80,
-            200
+            40,
+            64
           ],
-          "alignItems": "center",
           "children": [
             {
               "type": "text",
@@ -2537,50 +2536,71 @@
               "letterSpacing": 2
             },
             {
-              "type": "text",
-              "id": "JOPZn",
-              "name": "jt",
-              "fill": "$ink",
-              "content": "Envia’ns el teu CV.",
-              "fontFamily": "$font-display",
-              "fontSize": 48,
-              "fontWeight": "normal",
-              "fontStyle": "italic"
-            },
-            {
-              "type": "text",
-              "id": "FeBtw",
-              "name": "jd",
-              "fill": "$ink-soft",
-              "textGrowth": "fixed-width",
-              "width": "fill_container",
-              "content": "Si vols formar part de Bella Ciao, envia el currículum. No recollim candidatures en un formulari intern: el correu s’obre al teu client de correu.",
-              "lineHeight": 1.45,
-              "textAlign": "center",
-              "fontFamily": "$font-body",
-              "fontSize": 16,
-              "fontWeight": "normal"
-            },
-            {
               "type": "frame",
-              "id": "unHQo",
-              "name": "Mail btn",
-              "fill": "$wine",
-              "cornerRadius": 22,
-              "padding": [
-                16,
-                28
-              ],
+              "id": "rWYRN",
+              "name": "Jobs row",
+              "width": "fill_container",
+              "gap": 24,
+              "justifyContent": "space_between",
+              "alignItems": "center",
               "children": [
                 {
-                  "type": "text",
-                  "id": "WmQgq",
-                  "name": "mb",
-                  "fill": "$text-inverse",
-                  "content": "Enviar CV",
-                  "fontFamily": "$font-body",
-                  "fontSize": 15,
-                  "fontWeight": "600"
+                  "type": "frame",
+                  "id": "A0pes",
+                  "name": "Jobs copy",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "JOPZn",
+                      "name": "jt",
+                      "fill": "$ink",
+                      "content": "Envia’ns el teu CV.",
+                      "fontFamily": "$font-display",
+                      "fontSize": 48,
+                      "fontWeight": "normal",
+                      "fontStyle": "italic"
+                    },
+                    {
+                      "type": "text",
+                      "id": "FeBtw",
+                      "name": "jd",
+                      "fill": "$ink-soft",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Si vols formar part de Bella Ciao, envia el currículum. No recollim candidatures en un formulari intern: el correu s’obre al teu client de correu.",
+                      "lineHeight": 1.45,
+                      "textAlign": "center",
+                      "fontFamily": "$font-body",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "unHQo",
+                  "name": "Mail btn",
+                  "fill": "$wine",
+                  "cornerRadius": 22,
+                  "padding": [
+                    16,
+                    28
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "WmQgq",
+                      "name": "mb",
+                      "fill": "$text-inverse",
+                      "content": "Enviar CV",
+                      "fontFamily": "$font-body",
+                      "fontSize": 15,
+                      "fontWeight": "600"
+                    }
+                  ]
                 }
               ]
             },
@@ -2681,8 +2701,8 @@
                   "type": "text",
                   "id": "ptNiz",
                   "name": "Kicker",
-                  "fill": "$gold",
-                  "content": "SANTA COLOMA · ANDORRA",
+                  "fill": "#F3E6C8",
+                  "content": "TRATTORIA · SANTA COLOMA",
                   "fontFamily": "$font-body",
                   "fontSize": 10,
                   "fontWeight": "normal",
@@ -4504,7 +4524,7 @@
                   "id": "Ouvil",
                   "name": "La cuinat",
                   "fill": "$ink",
-                  "content": "La cuina",
+                  "content": "Les masses",
                   "fontFamily": "$font-display",
                   "fontSize": 24,
                   "fontWeight": "normal",
@@ -4517,7 +4537,7 @@
                   "fill": "$ink-soft",
                   "textGrowth": "fixed-width",
                   "width": "fill_container",
-                  "content": "Pasta, pizza i sala italiana. Delivery i take away a través de proveïdor extern, pendent d'enllaç.",
+                  "content": "La massa és l’ofici: pizza, pasta i pastry, treballades amb calma. De la pizza al plat de pasta, tot gira al voltant de la massa.",
                   "lineHeight": 1.4,
                   "fontFamily": "$font-body",
                   "fontSize": 14,
@@ -4608,14 +4628,14 @@
             {
               "type": "frame",
               "id": "BA3HC",
-              "name": "p3",
+              "name": "Pasta",
               "clip": true,
               "width": "fill_container",
               "height": "fill_container",
               "fill": {
                 "type": "image",
                 "enabled": true,
-                "url": "images/involtini.jpg",
+                "url": "images/pasta-trattoria.jpg",
                 "mode": "cover"
               }
             }

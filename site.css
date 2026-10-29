@@ -571,23 +571,30 @@ body.type-3 .block-head h3 { font-size: 16px; }
 
 .jobs-hero {
   background: var(--cream);
-  text-align: center;
-  padding-block: clamp(56px, 8vw, 80px);
+  padding-block: clamp(32px, 5vw, 48px);
 }
 .jobs-hero .wrap {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  max-width: 760px;
+  align-items: stretch;
+  gap: 12px;
 }
 .jobs-hero .eyebrow { color: var(--wine); }
+.jobs-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 28px;
+  flex-wrap: wrap;
+}
+.jobs-copy { flex: 1 1 280px; min-width: 0; }
 .jobs-hero h2 {
-  margin: 0;
-  font: italic 500 clamp(32px, 5vw, 48px)/1.1 var(--serif);
+  margin: 0 0 6px;
+  font: italic 500 clamp(28px, 4vw, 40px)/1.1 var(--serif);
   color: var(--ink);
 }
 .jobs-hero p { margin: 0; color: var(--ink-soft); max-width: 42em; }
+.jobs-hero .btn { flex: 0 0 auto; }
 .jobs-legal { font-size: 12px !important; color: #8e8e93 !important; }
 .jobs-legal a { color: inherit; }
 

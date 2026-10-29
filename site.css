@@ -154,11 +154,11 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
   color: var(--ink-soft);
   white-space: nowrap;
   padding: 6px 0;
-  border-bottom: 2px solid transparent;
-  transition: color 0.18s ease, border-color 0.18s ease;
+  border-bottom: 0;
+  transition: color 0.18s ease;
 }
-.nav-links a:hover { color: var(--wine); border-bottom-color: var(--wine); }
-.nav-links a.is-active { color: var(--wine); border-bottom-color: var(--wine); }
+.nav-links a:hover { color: var(--wine); }
+.nav-links a.is-active { color: var(--ink); }
 
 .switchers { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .seg, .langs { position: relative; isolation: isolate; }
@@ -259,11 +259,18 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
 .hero .eyebrow { color: var(--gold); }
 .hero h1 { max-width: 14ch; }
 .hero p { margin: 0; max-width: 36em; color: rgba(255,255,255,0.88); }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 10px; width: 100%; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 8px; width: auto; }
+.hero-actions .btn {
+  flex: 0 0 auto;
+  min-height: 36px;
+  padding: 0 16px;
+  font-size: 13px;
+  width: auto;
+}
 
 .badges { background: var(--green); color: #d5cfc6; }
 .badges .wrap { display: flex; flex-wrap: wrap; gap: 10px 24px; padding-block: 12px; }
-.badges span, .badges a { font: 500 11px/1.4 var(--sans); letter-spacing: 0.12em; color: inherit; text-decoration: none; }
+.badges span, .badges a { font: 500 11px/1.4 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: inherit; text-decoration: none; }
 .badge-reviews { border-bottom: 1px solid transparent; }
 .badge-reviews:hover { color: #fff; border-bottom-color: currentColor; }
 
@@ -365,54 +372,6 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
 .hours-row em { color: var(--wine); font-style: normal; font-weight: 600; }
 .cta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
 
-.teaser {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: stretch;
-  background: var(--ink);
-  color: var(--paper);
-}
-.teaser img {
-  width: 100%;
-  height: 280px;
-  max-width: none;
-  object-fit: cover;
-  display: block;
-}
-.teaser-copy {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 16px;
-  padding: 40px var(--pad) 48px;
-}
-.teaser-copy .eyebrow {
-  color: var(--gold);
-  letter-spacing: 0.18em;
-}
-.teaser-copy .h-section {
-  color: var(--paper);
-  font-size: clamp(28px, 3.2vw, 36px);
-  line-height: 1.15;
-}
-.teaser-copy p {
-  margin: 0;
-  max-width: 36em;
-  font-size: 15px;
-  line-height: 1.45;
-  color: rgba(255,253,252,0.88);
-}
-.teaser-cta {
-  color: var(--gold);
-  text-decoration: none;
-  font: 500 14px/1 var(--sans);
-  width: fit-content;
-  border-bottom: 1px solid transparent;
-  padding-bottom: 4px;
-  transition: color 0.18s ease, border-color 0.18s ease;
-}
-.teaser-cta:hover { color: #fff; border-bottom-color: currentColor; }
-
 .site-footer { background: var(--ink); color: #d5cfc6; padding: 40px 0 24px; }
 .footer-jobs {
   display: flex;
@@ -472,19 +431,9 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
   .menu-panel { padding: 32px; }
   .split, .visit { grid-template-columns: 1fr 1fr; align-items: center; }
   .split img, .visit iframe { height: 360px; }
-  .teaser {
-    grid-template-columns: 1.15fr 1fr;
-    min-height: 560px;
-  }
-  .teaser img {
-    height: 560px;
-    min-height: 560px;
-  }
-  .teaser-copy { padding: 64px 56px; }
   .gallery { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
   .footer-jobs { flex-direction: row; align-items: center; justify-content: space-between; }
-  .hero-actions .btn { flex: 1 1 auto; width: auto; }
   .cookie { left: 50%; right: auto; width: min(520px, calc(100% - 32px)); transform: translateX(-50%); }
   .cookie-actions { flex-direction: row; }
   .cookie-actions .btn { flex: 1; }
@@ -508,7 +457,6 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
   .brand img { display: none; }
   .brand-name { font-size: 20px; }
   .brand-claim { font-size: 8px; letter-spacing: 0.06em; }
-  .hero-actions .btn { flex: 1 1 100%; }
   .langs { gap: 2px; padding: 3px; }
   .langs button { min-width: 28px; height: 28px; padding: 0 6px; }
   .btn-call {

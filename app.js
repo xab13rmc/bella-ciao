@@ -10,7 +10,7 @@
     en: {entrants:"Starters",amanides:"Salads",sopes:"Soups",pasta:"Pasta",pasta_farcida:"Stuffed pasta",pizzes:"Pizzas",pizzes_blanques:"White pizzas",carn:"Meat",postres:"Desserts",begudes:"Drinks",cerveses:"Beers",alcohol:"Spirits",coctels:"Cocktails",cafe_te:"Coffee & tea",suplements:"Extras"}
   };
   var I18N = {
-    "nav.menu": {cat:"La carta",es:"La carta",fr:"La carte",en:"Menu"},
+    "nav.menu": {cat:"Carta",es:"Carta",fr:"Carte",en:"Menu"},
     "nav.house": {cat:"El restaurant",es:"El restaurante",fr:"Le restaurant",en:"The restaurant"},
     "nav.visit": {cat:"Com arribar",es:"Cómo llegar",fr:"Accès",en:"Find us"},
     "jobs.cta": {cat:"Enviar CV",es:"Enviar CV",fr:"Envoyer le CV",en:"Send CV"},
@@ -21,7 +21,8 @@
     "hero.title": {cat:"La taula italiana, a casa vostra.",es:"La mesa italiana, en casa.",fr:"La table italienne, chez vous.",en:"The Italian table, at home."},
     "hero.sub": {cat:"Plats cuinats amb cura, servei atent i ambient acollidor. Carta en català, castellà, francès i anglès.",es:"Platos cocinados con cuidado, servicio atento y ambiente acogedor. Carta en catalán, castellano, francés e inglés.",fr:"Des plats cuisinés avec soin, un service attentif et une salle chaleureuse.",en:"Carefully cooked dishes, attentive service and a warm room."},
     "hero.cta": {cat:"Veure la carta",es:"Ver la carta",fr:"Voir la carte",en:"View the menu"},
-    "badge.reviews": {cat:"ressenyes",es:"reseñas",fr:"avis",en:"reviews"},
+    "hero.book": {cat:"Reservar",es:"Reservar",fr:"Réserver",en:"Reserve"},
+    "badge.reviews": {cat:"ressenyes a Google",es:"reseñas en Google",fr:"avis sur Google",en:"Google reviews"},
     "badge.dine": {cat:"MENJAR AL LOCAL",es:"COMER EN EL LOCAL",fr:"SUR PLACE",en:"DINE-IN"},
     "badge.take": {cat:"PER EMPORTAR",es:"PARA LLEVAR",fr:"À EMPORTER",en:"TAKEAWAY"},
     "info.addr": {cat:"ADREÇA",es:"DIRECCIÓN",fr:"ADRESSE",en:"ADDRESS"},

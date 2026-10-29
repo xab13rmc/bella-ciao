@@ -10,7 +10,7 @@
     en: {entrants:"Starters",amanides:"Salads",sopes:"Soups",pasta:"Pasta",pasta_farcida:"Stuffed pasta",pizzes:"Pizzas",pizzes_blanques:"White pizzas",carn:"Meat",postres:"Desserts",begudes:"Drinks",cerveses:"Beers",alcohol:"Spirits",coctels:"Cocktails",cafe_te:"Coffee & tea",suplements:"Extras"}
   };
   var I18N = {
-    "nav.menu": {cat:"Carta",es:"Carta",fr:"Carte",en:"Menu"},
+    "nav.menu": {cat:"La carta",es:"La carta",fr:"La carte",en:"Menu"},
     "nav.house": {cat:"El restaurant",es:"El restaurante",fr:"Le restaurant",en:"The restaurant"},
     "nav.visit": {cat:"Com arribar",es:"Cómo llegar",fr:"Accès",en:"Find us"},
     "jobs.cta": {cat:"Enviar CV",es:"Enviar CV",fr:"Envoyer le CV",en:"Send CV"},
@@ -21,14 +21,12 @@
     "hero.title": {cat:"La taula italiana, a casa vostra.",es:"La mesa italiana, en casa.",fr:"La table italienne, chez vous.",en:"The Italian table, at home."},
     "hero.sub": {cat:"Plats cuinats amb cura, servei atent i ambient acollidor. Carta en català, castellà, francès i anglès.",es:"Platos cocinados con cuidado, servicio atento y ambiente acogedor. Carta en catalán, castellano, francés e inglés.",fr:"Des plats cuisinés avec soin, un service attentif et une salle chaleureuse.",en:"Carefully cooked dishes, attentive service and a warm room."},
     "hero.cta": {cat:"Veure la carta",es:"Ver la carta",fr:"Voir la carte",en:"View the menu"},
-    "hero.book": {cat:"Reservar",es:"Reservar",fr:"Réserver",en:"Reserve"},
     "badge.reviews": {cat:"ressenyes",es:"reseñas",fr:"avis",en:"reviews"},
     "badge.dine": {cat:"MENJAR AL LOCAL",es:"COMER EN EL LOCAL",fr:"SUR PLACE",en:"DINE-IN"},
     "badge.take": {cat:"PER EMPORTAR",es:"PARA LLEVAR",fr:"À EMPORTER",en:"TAKEAWAY"},
     "info.addr": {cat:"ADREÇA",es:"DIRECCIÓN",fr:"ADRESSE",en:"ADDRESS"},
     "info.hours": {cat:"HORARI",es:"HORARIO",fr:"HORAIRES",en:"HOURS"},
-    "info.hoursV": {cat:"Dt–ds 13:00–16:00 · 19:30–22:30",es:"Ma–sá 13:00–16:00 · 19:30–22:30",fr:"Ma–sa 13:00–16:00 · 19:30–22:30",en:"Tue–Sat 13:00–16:00 · 19:30–22:30"},
-    "info.addrV": {cat:"Av. d'Enclar 84, Santa Coloma",es:"Av. d'Enclar 84, Santa Coloma",fr:"Av. d'Enclar 84, Santa Coloma",en:"Av. d'Enclar 84, Santa Coloma"},
+    "info.hoursV": {cat:"Dt – ds · 13:00–16:00 / 19:30–22:30",es:"Ma – sá · 13:00–16:00 / 19:30–22:30",fr:"Ma – sa · 13:00–16:00 / 19:30–22:30",en:"Tue – Sat · 13:00–16:00 / 19:30–22:30"},
     "info.closed": {cat:"Tancat diumenges i dilluns · fitxa de Google",es:"Cerrado domingos y lunes · ficha de Google",fr:"Fermé dimanche et lundi · fiche Google",en:"Closed Sunday and Monday · Google listing"},
     "info.how": {cat:"Com arribar",es:"Cómo llegar",fr:"Comment venir",en:"How to get here"},
     "info.hoursLink": {cat:"Veure horari complet",es:"Ver horario completo",fr:"Voir les horaires",en:"See full hours"},

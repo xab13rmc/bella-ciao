@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="site.css?v=12" />
+  <link rel="stylesheet" href="site.css?v=11" />
 </head>
 <body>
   <header class="site-header">
@@ -23,7 +23,7 @@
         </span>
       </a>
       <nav class="nav-links desktop-only" aria-label="Principal">
-        <a href="carta.html" data-i18n="nav.menu">Carta</a>
+        <a href="carta.html" data-i18n="nav.menu">La carta</a>
         <a href="#casa" data-i18n="nav.house">El restaurant</a>
         <a href="#visitanos" data-i18n="nav.visit">Com arribar</a>
       </nav>
@@ -44,47 +44,53 @@
     </div>
     <div class="header-panel" id="navPanel">
       <nav class="nav-links">
-        <a href="carta.html" data-i18n="nav.menu">Carta</a>
+        <a href="carta.html" data-i18n="nav.menu">La carta</a>
         <a href="#casa" data-i18n="nav.house">El restaurant</a>
         <a href="#visitanos" data-i18n="nav.visit">Com arribar</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero" style="background-image:url('images/pizza-hero.jpg')">
+  <section class="hero" style="background-image:url('images/hero-kitchen.jpg')">
     <div class="wrap hero-inner">
       <p class="eyebrow">TRATTORIA · SANTA COLOMA</p>
       <h1 class="h-display" data-i18n="hero.title">La taula italiana, a casa vostra.</h1>
       <p data-i18n="hero.sub">Plats cuinats amb cura, servei atent i ambient acollidor. Carta en català, castellà, francès i anglès.</p>
       <div class="hero-actions">
         <a class="btn btn-wine" href="carta.html" data-i18n="hero.cta">Veure la carta</a>
-        <a class="btn btn-ghost-light" href="tel:+376826024" data-i18n="hero.book">Reservar</a>
+        <a class="btn btn-ghost-light" href="tel:+376826024">+376 826 024</a>
       </div>
     </div>
   </section>
 
-  <section class="info-strip">
+  <div class="badges">
     <div class="wrap">
-      <a class="strip-cell" href="https://www.google.com/maps/search/?api=1&query=Bella+Ciao%2C+Av+d%27Enclar+84%2C+AD500+Andorra+la+Vella" target="_blank" rel="noopener">
-        <span class="strip-k">GOOGLE</span>
-        <span class="strip-v">★ 4,8 · 229 <span data-i18n="badge.reviews">ressenyes</span></span>
-      </a>
-      <a class="strip-cell" href="#visitanos">
-        <span class="strip-k" data-i18n="info.addr">ADREÇA</span>
-        <span class="strip-v" data-i18n="info.addrV">Av. d'Enclar 84, Santa Coloma</span>
-      </a>
-      <a class="strip-cell" href="tel:+376826024">
-        <span class="strip-k" data-i18n="info.tel">TELÈFON</span>
-        <span class="strip-v">+376 826 024</span>
-      </a>
-      <a class="strip-cell" href="#visitanos">
-        <span class="strip-k" data-i18n="info.hours">HORARI</span>
-        <span class="strip-v" data-i18n="info.hoursV">Dt–ds 13:00–16:00 · 19:30–22:30</span>
-      </a>
-      <a class="strip-cell" href="https://www.instagram.com/bellaciao.and/" target="_blank" rel="noopener">
-        <span class="strip-k">INSTAGRAM</span>
-        <span class="strip-v">@bellaciao.and</span>
-      </a>
+      <a class="badge-reviews" href="https://www.google.com/maps/search/?api=1&query=Bella+Ciao%2C+Av+d%27Enclar+84%2C+AD500+Andorra+la+Vella" target="_blank" rel="noopener">★ 4,8 · 229 <span data-i18n="badge.reviews">ressenyes</span></a>
+      <span data-i18n="badge.dine">MENJAR AL LOCAL</span>
+      <span data-i18n="badge.take">PER EMPORTAR</span>
+      <span>AV. D'ENCLAR 84</span>
+    </div>
+  </div>
+
+  <section class="info">
+    <div class="wrap">
+      <div class="info-cell">
+        <div class="label" data-i18n="info.addr">ADREÇA</div>
+        <strong>Av. d'Enclar, 84 · Ed. Pic de Casamanya</strong>
+        <small>AD500 Andorra la Vella</small>
+        <a href="#visitanos" data-i18n="info.how">Com arribar</a>
+      </div>
+      <div class="info-cell">
+        <div class="label" data-i18n="info.hours">HORARI</div>
+        <strong data-i18n="info.hoursV">Dt – ds · 13:00–16:00 / 19:30–22:30</strong>
+        <small data-i18n="info.closed">Tancat diumenges i dilluns · fitxa de Google</small>
+      </div>
+      <div class="info-cell">
+        <div class="label" data-i18n="info.tel">TELÈFON</div>
+        <strong>+376 826 024</strong>
+        <small data-i18n="info.telN">Reserves i comandes per emportar</small>
+        <a href="tel:+376826024" data-i18n="info.call">Trucar ara</a>
+      </div>
     </div>
   </section>
 
@@ -103,6 +109,16 @@
       <img src="images/platter.jpg" alt="">
       <img src="images/focaccia.png" alt="">
       <img src="images/google-food1.jpg" alt="">
+    </div>
+  </section>
+
+  <section class="teaser" aria-labelledby="teaser-title">
+    <img src="images/platter.jpg" alt="Plats de Bella Ciao">
+    <div class="teaser-copy">
+      <p class="eyebrow" data-i18n="house.k">EL RESTAURANT</p>
+      <h2 class="h-section" id="teaser-title" data-i18n="house.t">Sala petita, cuina italiana, tracte de casa.</h2>
+      <p data-i18n="house.p">Bella Ciao és la pizzeria italiana de confiança a Santa Coloma: plats cuinats amb cura, servei atent i ambient acollidor.</p>
+      <a class="teaser-cta" href="#casa" data-i18n="house.cta">Conèixer el restaurant →</a>
     </div>
   </section>
 
@@ -179,6 +195,6 @@
   </div>
 
   <script src="menu-data.js"></script>
-  <script src="app.js?v=12"></script>
+  <script src="app.js?v=11"></script>
 </body>
 </html>

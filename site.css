@@ -360,9 +360,10 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
   .nav-toggle { display: inline-flex; }
   .brand img { display: none; }
   .brand-name { font-size: 20px; }
-  .brand-claim { letter-spacing: 0.1em; }
+  .brand-claim { font-size: 8px; letter-spacing: 0.06em; }
   .hero-actions .btn { flex: 1 1 100%; }
-  .langs button { min-width: 34px; height: 30px; padding: 0 8px; }
+  .langs { gap: 2px; padding: 3px; }
+  .langs button { min-width: 28px; height: 28px; padding: 0 6px; }
   .btn-call span { display: none; }
 }
 

@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="site.css?v=4" />
+  <link rel="stylesheet" href="site.css?v=5" />
 </head>
 <body>
   <header class="site-header">
@@ -24,10 +24,6 @@
         <a href="#casa" data-i18n="nav.house">El restaurant</a>
         <a href="#visitanos" data-i18n="nav.visit">Com arribar</a>
       </nav>
-      <div class="seg desktop-only" role="group" aria-label="Canal">
-        <button type="button" data-channel="restaurant" aria-pressed="true" data-i18n="ch.rest">Restaurant</button>
-        <button type="button" data-channel="delivery" aria-pressed="false" data-i18n="ch.take">Per emportar</button>
-      </div>
       <div class="langs" role="group" aria-label="Idioma">
         <button type="button" data-lang="cat" aria-pressed="true">CA</button>
         <button type="button" data-lang="es" aria-pressed="false">ES</button>
@@ -48,18 +44,6 @@
         <a href="#casa" data-i18n="nav.house">El restaurant</a>
         <a href="#visitanos" data-i18n="nav.visit">Com arribar</a>
       </nav>
-      <div class="switchers">
-        <div class="seg">
-          <button type="button" data-channel="restaurant" aria-pressed="true" data-i18n="ch.rest">Restaurant</button>
-          <button type="button" data-channel="delivery" aria-pressed="false" data-i18n="ch.take">Per emportar</button>
-        </div>
-        <div class="langs">
-          <button type="button" data-lang="cat" aria-pressed="true">CA</button>
-          <button type="button" data-lang="es">ES</button>
-          <button type="button" data-lang="fr">FR</button>
-          <button type="button" data-lang="en">EN</button>
-        </div>
-      </div>
     </div>
   </header>
 
@@ -103,20 +87,6 @@
         <small data-i18n="info.telN">Reserves i comandes per emportar</small>
         <a href="tel:+376826024" data-i18n="info.call">Trucar ara</a>
       </div>
-    </div>
-  </section>
-
-  <section class="section" id="carta">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow" data-i18n="menu.k">LA CARTA</p>
-          <h2 class="h-section" data-i18n="menu.t">Cuina italiana, sense dreceres.</h2>
-          <p class="lead" data-i18n="menu.p">Carta digital del catàleg intern. Sense botons de compra: és una carta de restaurant.</p>
-        </div>
-        <a class="btn btn-dark" href="carta.html" data-i18n="menu.more">Veure tota la carta</a>
-      </div>
-      <div id="preview-panel" class="menu-panel"></div>
     </div>
   </section>
 

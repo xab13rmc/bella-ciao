@@ -119,13 +119,60 @@
     });
     return wrap;
   }
-  function renderPreview() {
-    var host = document.getElementById("preview-panel");
-    if (!host) return;
-    host.innerHTML = "";
-    var list = items().filter(function (d) { return d.cat === "pizzes"; }).slice(0, 6);
-    if (!list.length) list = items().slice(0, 6);
-    host.appendChild(cols(list));
+  function onCarta() {
+    return /carta\.html/i.test(location.pathname);
+  }
+  function headerOffset() {
+    var h = document.querySelector(".site-header");
+    var bar = document.querySelector(".carta-sticky");
+    return (h ? h.offsetHeight : 64) + (bar ? bar.offsetHeight : 0) + 12;
+  }
+  var lastTab = "";
+  function setActiveTab(id) {
+    var index = document.getElementById("menu-index");
+    if (!index || !id) return;
+    index.querySelectorAll(".tab").forEach(function (a) {
+      var on = a.getAttribute("href") === "#" + id;
+      a.classList.toggle("is-active", on);
+      if (on && id !== lastTab) {
+        var left = a.offsetLeft;
+        var right = left + a.offsetWidth;
+        if (left < index.scrollLeft + 16 || right > index.scrollLeft + index.clientWidth - 16) {
+          index.scrollTo({ left: Math.max(0, left - 24), behavior: "smooth" });
+        }
+      }
+    });
+    lastTab = id;
+  }
+  function markCartaSection() {
+    var blocks = document.querySelectorAll(".menu-block");
+    if (!blocks.length) return;
+    var line = headerOffset();
+    var current = blocks[0];
+    blocks.forEach(function (b) {
+      if (b.getBoundingClientRect().top - line <= 8) current = b;
+    });
+    setActiveTab(current.id);
+  }
+  function markNav() {
+    var carta = onCarta();
+    var hash = location.hash.replace("#", "");
+    var casa = document.getElementById("casa");
+    var visit = document.getElementById("visitanos");
+    var line = (document.querySelector(".site-header") || {}).offsetHeight || 64;
+    var section = "";
+    if (!carta) {
+      if (visit && visit.getBoundingClientRect().top - line <= 80) section = "visitanos";
+      else if (casa && casa.getBoundingClientRect().top - line <= 80) section = "casa";
+      if (hash === "casa" || hash === "visitanos") section = hash;
+    }
+    document.querySelectorAll(".nav-links a").forEach(function (a) {
+      var href = a.getAttribute("href") || "";
+      var active = carta ? /carta\.html/i.test(href) && href.indexOf("#") < 0
+        : (section === "casa" && href.indexOf("#casa") >= 0) ||
+          (section === "visitanos" && href.indexOf("#visitanos") >= 0);
+      a.classList.toggle("is-active", active);
+    });
   }
   function renderCarta() {
     var host = document.getElementById("menu-body");
@@ -133,6 +180,7 @@
     var title = document.getElementById("menu-title");
     var intro = document.getElementById("menu-intro");
     if (!host) return;
+    lastTab = "";
     var list = items();
     var cats = catsOf(list);
     host.innerHTML = "";
@@ -164,6 +212,7 @@
         index.appendChild(a);
       }
     });
+    markCartaSection();
   }
   function translate() {
     document.documentElement.lang = state.lang === "cat" ? "ca" : state.lang;
@@ -216,8 +265,8 @@
   }
   function paint() {
     translate();
-    renderPreview();
     renderCarta();
+    markNav();
   }
   function bind() {
     document.addEventListener("click", function (e) {
@@ -232,15 +281,19 @@
       var chBtn = e.target.closest("[data-channel]");
       if (chBtn) {
         e.preventDefault();
-        var next = chBtn.getAttribute("data-channel");
-        var onCarta = /carta\.html/i.test(location.pathname + location.href);
-        if (!onCarta) {
-          location.href = "carta.html?canal=" + encodeURIComponent(next) + "&lang=" + encodeURIComponent(state.lang);
-          return;
-        }
-        state.channel = next;
+        state.channel = chBtn.getAttribute("data-channel");
         save();
         paint();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+      var tab = e.target.closest("#menu-index .tab");
+      if (tab) {
+        e.preventDefault();
+        var id = (tab.getAttribute("href") || "").slice(1);
+        var block = document.getElementById(id);
+        if (block) block.scrollIntoView({ behavior: "smooth", block: "start" });
+        setActiveTab(id);
         return;
       }
       var cook = e.target.closest("[data-cookie]");
@@ -268,7 +321,8 @@
     function ready(data) { menu = data || []; paint(); }
     if (window.BC_MENU) ready(window.BC_MENU);
     else fetch("menu.json").then(function (r) { return r.json(); }).then(ready).catch(function () { ready([]); });
-    window.addEventListener("resize", translate);
+    window.addEventListener("resize", function () { translate(); markNav(); markCartaSection(); });
+    window.addEventListener("scroll", function () { markNav(); markCartaSection(); }, { passive: true });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();

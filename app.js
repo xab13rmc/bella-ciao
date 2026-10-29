@@ -36,7 +36,7 @@
     "info.tel": {cat:"TELÈFON",es:"TELÉFONO",fr:"TÉLÉPHONE",en:"PHONE"},
     "info.telN": {cat:"Reserves i comandes per emportar",es:"Reservas y pedidos para llevar",fr:"Réservations et commandes à emporter",en:"Bookings and takeaway orders"},
     "info.call": {cat:"Trucar ara",es:"Llamar ahora",fr:"Appeler",en:"Call now"},
-    "menu.k": {cat:"Carta",es:"Carta",fr:"Carte",en:"Menu"},
+    "menu.k": {cat:"La nostra carta",es:"Nuestra carta",fr:"Notre carte",en:"Our menu"},
     "menu.t": {cat:"Cuina italiana, sense dreceres.",es:"Cocina italiana, sin atajos.",fr:"Cuisine italienne, sans raccourcis.",en:"Italian cooking, no shortcuts."},
     "menu.p": {cat:"Carta digital del catàleg intern. Sense botons de compra: és una carta de restaurant, no una botiga.",es:"Carta digital del catálogo interno. Sin botones de compra: es una carta de restaurante, no una tienda.",fr:"Carte numérique du catalogue interne. Pas de bouton d’achat.",en:"Digital menu from the internal catalogue. No buy buttons."},
     "menu.more": {cat:"Ampliar la carta",es:"Ampliar la carta",fr:"Voir toute la carte",en:"Full menu"},

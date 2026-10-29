@@ -243,7 +243,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
   display: flex;
   align-items: flex-end;
   min-height: 520px;
-  background: #1d211c center/cover no-repeat;
+  background: #1d211c center 62%/cover no-repeat;
   color: #fffdfc;
 }
 .hero::after {

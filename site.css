@@ -273,7 +273,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
 .section-head > div { display: flex; flex-direction: column; gap: 10px; }
 
 .menu-panel, .menu-body { background: var(--paper); border-radius: 20px; padding: 20px 18px; }
-.menu-block { margin-bottom: 36px; scroll-margin-top: calc(var(--header-h) + 108px); }
+.menu-block { margin-bottom: 36px; scroll-margin-top: calc(var(--header-h) + var(--carta-bar, 120px) + 8px); }
 .menu-block:last-child { margin-bottom: 0; }
 .block-head h3 {
   font: 600 13px/1.2 var(--sans);
@@ -319,6 +319,8 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
   margin: 0;
   padding: 0 0 10px;
   background: transparent;
+  scroll-padding-inline: 24px;
+  scroll-behavior: smooth;
 }
 .index::-webkit-scrollbar { display: none; }
 .tab {

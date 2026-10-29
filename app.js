@@ -122,36 +122,51 @@
   function onCarta() {
     return /carta\.html/i.test(location.pathname);
   }
-  function headerOffset() {
-    var h = document.querySelector(".site-header");
-    var bar = document.querySelector(".carta-sticky");
-    return (h ? h.offsetHeight : 64) + (bar ? bar.offsetHeight : 0) + 12;
-  }
   var lastTab = "";
-  function setActiveTab(id) {
+  var lockTab = "";
+  var lockTimer = 0;
+  function sectionProbe() {
+    var bar = document.querySelector(".carta-sticky");
+    if (bar) return bar.getBoundingClientRect().bottom + 8;
+    var h = document.querySelector(".site-header");
+    return (h ? h.getBoundingClientRect().bottom : 64) + 8;
+  }
+  function scrollTabIntoView(tab) {
+    var index = document.getElementById("menu-index");
+    if (!index || !tab) return;
+    var iBox = index.getBoundingClientRect();
+    var tBox = tab.getBoundingClientRect();
+    var delta = (tBox.left + tBox.right) / 2 - (iBox.left + iBox.right) / 2;
+    index.scrollTo({ left: Math.max(0, index.scrollLeft + delta), behavior: "smooth" });
+  }
+  function setActiveTab(id, fromClick) {
     var index = document.getElementById("menu-index");
     if (!index || !id) return;
+    if (fromClick) {
+      lockTab = id;
+      clearTimeout(lockTimer);
+      lockTimer = setTimeout(function () { lockTab = ""; }, 800);
+    } else if (lockTab && id !== lockTab) {
+      return;
+    }
+    var active = null;
     index.querySelectorAll(".tab").forEach(function (a) {
       var on = a.getAttribute("href") === "#" + id;
       a.classList.toggle("is-active", on);
-      if (on && id !== lastTab) {
-        var left = a.offsetLeft;
-        var right = left + a.offsetWidth;
-        if (left < index.scrollLeft + 16 || right > index.scrollLeft + index.clientWidth - 16) {
-          index.scrollTo({ left: Math.max(0, left - 24), behavior: "smooth" });
-        }
-      }
+      a.setAttribute("aria-current", on ? "true" : "false");
+      if (on) active = a;
     });
+    if (active && id !== lastTab) scrollTabIntoView(active);
     lastTab = id;
   }
   function markCartaSection() {
-    var blocks = document.querySelectorAll(".menu-block");
+    var blocks = document.querySelectorAll("#menu-body .menu-block");
     if (!blocks.length) return;
-    var line = headerOffset();
+    var probe = sectionProbe();
     var current = blocks[0];
-    blocks.forEach(function (b) {
-      if (b.getBoundingClientRect().top - line <= 8) current = b;
-    });
+    for (var i = 0; i < blocks.length; i++) {
+      if (blocks[i].getBoundingClientRect().top <= probe) current = blocks[i];
+    }
     setActiveTab(current.id);
   }
   function markNav() {
@@ -221,6 +236,8 @@
     });
     var h = document.querySelector(".site-header");
     if (h) document.documentElement.style.setProperty("--header-h", h.offsetHeight + "px");
+    var bar = document.querySelector(".carta-sticky");
+    if (bar) document.documentElement.style.setProperty("--carta-bar", bar.offsetHeight + "px");
     snapPills();
   }
   function snapPills(instant) {
@@ -309,8 +326,11 @@
         e.preventDefault();
         var id = (tab.getAttribute("href") || "").slice(1);
         var block = document.getElementById(id);
-        if (block) block.scrollIntoView({ behavior: "smooth", block: "start" });
-        setActiveTab(id);
+        setActiveTab(id, true);
+        if (block) {
+          var top = block.getBoundingClientRect().top + window.scrollY - sectionProbe() + 4;
+          window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+        }
         return;
       }
       var cook = e.target.closest("[data-cookie]");
@@ -338,8 +358,16 @@
     function ready(data) { menu = data || []; paint(); }
     if (window.BC_MENU) ready(window.BC_MENU);
     else fetch("menu.json").then(function (r) { return r.json(); }).then(ready).catch(function () { ready([]); });
+    var spyTick = 0;
     window.addEventListener("resize", function () { translate(); markNav(); markCartaSection(); snapPills(true); });
-    window.addEventListener("scroll", function () { markNav(); markCartaSection(); }, { passive: true });
+    window.addEventListener("scroll", function () {
+      if (spyTick) return;
+      spyTick = requestAnimationFrame(function () {
+        spyTick = 0;
+        markNav();
+        markCartaSection();
+      });
+    }, { passive: true });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();

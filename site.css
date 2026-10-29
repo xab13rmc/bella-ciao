@@ -107,7 +107,20 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
 }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; margin-right: auto; min-width: 0; }
 .brand img { width: 40px; height: 40px; border-radius: 50%; background: #fff; flex: 0 0 auto; }
-.brand span { font: 500 8px/1.3 var(--sans); letter-spacing: 0.2em; color: var(--ink-soft); white-space: nowrap; }
+.brand-copy { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.brand-name {
+  font: italic 500 22px/1 var(--serif);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  font-weight: 500;
+}
+.brand-claim {
+  font: 600 9px/1.2 var(--sans);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
 
 .nav-toggle {
   display: none;
@@ -335,7 +348,6 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
   .nav-toggle { display: none; }
   .header-panel { display: none; }
   .header-panel.is-open { display: none; }
-  .brand span { display: block; }
   .brand img { width: 44px; height: 44px; }
   .nav-links.desktop-only { display: flex; flex-direction: row; }
   .switchers.desktop-only { display: flex; }
@@ -346,7 +358,9 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
   .seg.desktop-only { display: none; }
   .switchers.desktop-only { display: none; }
   .nav-toggle { display: inline-flex; }
-  .brand span { display: none; }
+  .brand img { display: none; }
+  .brand-name { font-size: 20px; }
+  .brand-claim { letter-spacing: 0.1em; }
   .hero-actions .btn { flex: 1 1 100%; }
   .langs button { min-width: 34px; height: 30px; padding: 0 8px; }
   .btn-call span { display: none; }

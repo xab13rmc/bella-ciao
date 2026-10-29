@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="site.css?v=14" />
+  <link rel="stylesheet" href="site.css?v=15" />
 </head>
 <body>
   <header class="site-header">
@@ -66,33 +66,14 @@
   <div class="badges">
     <div class="wrap">
       <a class="badge-reviews" href="https://www.google.com/maps/search/?api=1&query=Bella+Ciao%2C+Av+d%27Enclar+84%2C+AD500+Andorra+la+Vella" target="_blank" rel="noopener">★ 4,8 · 229 <span data-i18n="badge.reviews">ressenyes a Google</span></a>
-      <span data-i18n="badge.dine">MENJAR AL LOCAL</span>
-      <span data-i18n="badge.take">PER EMPORTAR</span>
-      <span>AV. D'ENCLAR 84</span>
+      <a class="badge-link" href="#visitanos">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        AV. D'ENCLAR 84
+      </a>
+      <a class="badge-link" href="tel:+376826024">+376 826 024</a>
+      <a class="badge-link" href="https://www.google.com/maps/search/?api=1&query=Bella+Ciao%2C+Av+d%27Enclar+84%2C+AD500+Andorra+la+Vella" target="_blank" rel="noopener" data-i18n="info.hoursV">Dt – ds · 13:00–16:00 / 19:30–22:30</a>
     </div>
   </div>
-
-  <section class="info">
-    <div class="wrap">
-      <div class="info-cell">
-        <div class="label" data-i18n="info.addr">ADREÇA</div>
-        <strong>Av. d'Enclar, 84 · Ed. Pic de Casamanya</strong>
-        <small>AD500 Andorra la Vella</small>
-        <a href="#visitanos" data-i18n="info.how">Com arribar</a>
-      </div>
-      <div class="info-cell">
-        <div class="label" data-i18n="info.hours">HORARI</div>
-        <strong data-i18n="info.hoursV">Dt – ds · 13:00–16:00 / 19:30–22:30</strong>
-        <small data-i18n="info.closed">Tancat diumenges i dilluns · fitxa de Google</small>
-      </div>
-      <div class="info-cell">
-        <div class="label" data-i18n="info.tel">TELÈFON</div>
-        <strong>+376 826 024</strong>
-        <small data-i18n="info.telN">Reserves i comandes per emportar</small>
-        <a href="tel:+376826024" data-i18n="info.call">Trucar ara</a>
-      </div>
-    </div>
-  </section>
 
   <section class="section section-dark" id="casa">
     <div class="wrap split">
@@ -109,6 +90,29 @@
       <img src="images/platter.jpg" alt="">
       <img src="images/focaccia.png" alt="">
       <img src="images/google-food1.jpg" alt="">
+    </div>
+  </section>
+
+  <section class="info" id="contacte">
+    <div class="wrap">
+      <div class="info-cell">
+        <div class="label" data-i18n="info.addr">ADREÇA</div>
+        <strong>Av. d'Enclar, 84 · Ed. Pic de Casamanya</strong>
+        <small>AD500 Andorra la Vella</small>
+        <a href="#visitanos" data-i18n="info.how">Com arribar</a>
+      </div>
+      <div class="info-cell">
+        <div class="label" data-i18n="info.hours">HORARI</div>
+        <strong data-i18n="info.hoursV">Dt – ds · 13:00–16:00 / 19:30–22:30</strong>
+        <small data-i18n="info.closed">Tancat diumenges i dilluns · fitxa de Google</small>
+        <a href="https://www.google.com/maps/search/?api=1&query=Bella+Ciao%2C+Av+d%27Enclar+84%2C+AD500+Andorra+la+Vella" target="_blank" rel="noopener" data-i18n="info.hoursLink">Veure horari complet</a>
+      </div>
+      <div class="info-cell">
+        <div class="label" data-i18n="info.tel">TELÈFON</div>
+        <strong>+376 826 024</strong>
+        <small data-i18n="info.telN">Reserves i comandes per emportar</small>
+        <a href="tel:+376826024" data-i18n="info.call">Trucar ara</a>
+      </div>
     </div>
   </section>
 
@@ -132,15 +136,18 @@
     </div>
   </section>
 
+  <section class="jobs-hero" id="equip">
+    <div class="wrap">
+      <p class="eyebrow" data-i18n="jobs.k">EQUIP</p>
+      <h2 data-i18n="jobs.t">Envia’ns el teu CV.</h2>
+      <p data-i18n="jobs.p">Si vols formar part de Bella Ciao, envia el currículum. No recollim candidatures en un formulari intern: el correu s’obre al teu client de correu.</p>
+      <a class="btn btn-wine" href="mailto:staffandorra@andorra.ad" data-i18n="jobs.cta">Enviar CV</a>
+      <p class="jobs-legal"><span data-i18n="jobs.legal">Les dades de candidatura es tracten segons la Llei 29/2021 (LQPD) i la </span><a href="privadesa.html" data-i18n="nav.privacy">política de privadesa</a>.</p>
+    </div>
+  </section>
+
   <footer class="site-footer">
     <div class="wrap">
-      <div class="footer-jobs" id="equip">
-        <div>
-          <h4 data-i18n="jobs.k">TREBALLA AMB NOSALTRES</h4>
-          <p data-i18n="jobs.p">T’agradaria formar part de l’equip? Envia’ns el teu CV.</p>
-        </div>
-        <a class="btn btn-wine" href="mailto:staffandorra@andorra.ad" data-i18n="jobs.cta">Enviar CV</a>
-      </div>
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="images/logo-bella-ciao.png" alt="Bella Ciao" width="52" height="52">
@@ -185,6 +192,6 @@
   </div>
 
   <script src="menu-data.js"></script>
-  <script src="app.js?v=14"></script>
+  <script src="app.js?v=15"></script>
 </body>
 </html>

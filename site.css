@@ -269,12 +269,20 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
 }
 
 .badges { background: var(--green); color: #d5cfc6; }
-.badges .wrap { display: flex; flex-wrap: wrap; gap: 10px 24px; padding-block: 12px; }
+.badges .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 24px; padding-block: 12px; }
 .badges span, .badges a { font: 500 11px/1.4 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: inherit; text-decoration: none; }
 .badge-reviews { border-bottom: 1px solid transparent; }
 .badge-reviews:hover { color: #fff; border-bottom-color: currentColor; }
+.badge-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid transparent;
+}
+.badge-link svg { flex: 0 0 auto; }
+.badge-link:hover { color: #fff; border-bottom-color: currentColor; }
 
-.info { background: var(--paper); border-block: 1px solid var(--line); }
+.info { background: var(--cream); border-block: 1px solid var(--line); }
 .info .wrap { display: grid; grid-template-columns: 1fr; }
 .info-cell { padding: 20px 0; display: flex; flex-direction: column; gap: 6px; }
 .info-cell + .info-cell { border-top: 1px solid var(--line); }
@@ -371,6 +379,28 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
 .hours-row { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
 .hours-row em { color: var(--wine); font-style: normal; font-weight: 600; }
 .cta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+
+.jobs-hero {
+  background: var(--cream);
+  text-align: center;
+  padding-block: clamp(56px, 8vw, 80px);
+}
+.jobs-hero .wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 760px;
+}
+.jobs-hero .eyebrow { color: var(--wine); }
+.jobs-hero h2 {
+  margin: 0;
+  font: italic 500 clamp(32px, 5vw, 48px)/1.1 var(--serif);
+  color: var(--ink);
+}
+.jobs-hero p { margin: 0; color: var(--ink-soft); max-width: 42em; }
+.jobs-legal { font-size: 12px !important; color: #8e8e93 !important; }
+.jobs-legal a { color: inherit; text-decoration: underline; }
 
 .site-footer { background: var(--ink); color: #d5cfc6; padding: 40px 0 24px; }
 .footer-jobs {

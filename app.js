@@ -37,6 +37,10 @@
     "info.telN": {cat:"Reserves i comandes per emportar",es:"Reservas y pedidos para llevar",fr:"Réservations et commandes à emporter",en:"Bookings and takeaway orders"},
     "info.call": {cat:"Trucar ara",es:"Llamar ahora",fr:"Appeler",en:"Call now"},
     "menu.k": {cat:"La nostra carta",es:"Nuestra carta",fr:"Notre carte",en:"Our menu"},
+    "type.aria": {cat:"Mida del text de la carta",es:"Tamaño del texto de la carta",fr:"Taille du texte de la carte",en:"Menu text size"},
+    "type.s": {cat:"Text normal",es:"Texto normal",fr:"Texte normal",en:"Default text size"},
+    "type.m": {cat:"Text gran",es:"Texto grande",fr:"Texte grand",en:"Large text"},
+    "type.l": {cat:"Text molt gran",es:"Texto muy grande",fr:"Texte très grand",en:"Extra-large text"},
     "menu.t": {cat:"Cuina italiana, sense dreceres.",es:"Cocina italiana, sin atajos.",fr:"Cuisine italienne, sans raccourcis.",en:"Italian cooking, no shortcuts."},
     "menu.p": {cat:"Carta digital del catàleg intern. Sense botons de compra: és una carta de restaurant, no una botiga.",es:"Carta digital del catálogo interno. Sin botones de compra: es una carta de restaurante, no una tienda.",fr:"Carte numérique du catalogue interne. Pas de bouton d’achat.",en:"Digital menu from the internal catalogue. No buy buttons."},
     "menu.more": {cat:"Ampliar la carta",es:"Ampliar la carta",fr:"Voir toute la carte",en:"Full menu"},
@@ -68,7 +72,7 @@
     "cookie.read": {cat:"Llegir la política de privadesa",es:"Leer la política de privacidad",fr:"Lire la politique de confidentialité",en:"Read the privacy policy"}
   };
 
-  var state = { lang: "cat", channel: "restaurant" };
+  var state = { lang: "cat", channel: "restaurant", typeSize: 1 };
   var menu = [];
   var SHEET_ID = "1hmqH7DUOsLqShReGywm1i2qxcRQmpBXnSurG-7_h038";
   var SHEET_TAB = "MAESTRA";
@@ -317,13 +321,17 @@
     document.querySelectorAll("[data-channel]").forEach(function (b) {
       b.setAttribute("aria-pressed", String(b.getAttribute("data-channel") === state.channel));
     });
+    document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+      el.setAttribute("aria-label", t(el.getAttribute("data-i18n-aria")));
+    });
+    applyTypeSize();
     var h = document.querySelector(".site-header");
     if (h) document.documentElement.style.setProperty("--header-h", h.offsetHeight + "px");
     var bar = document.querySelector(".carta-sticky");
     if (bar) document.documentElement.style.setProperty("--carta-bar", bar.offsetHeight + "px");
   }
   function snapPills(instant) {
-    document.querySelectorAll(".seg, .langs").forEach(function (group) {
+    document.querySelectorAll(".seg, .langs, .type-size").forEach(function (group) {
       var on = group.querySelector("[aria-pressed='true']");
       var thumb = group.querySelector(".pill-thumb");
       if (!on || !thumb) return;
@@ -354,6 +362,7 @@
     try {
       localStorage.setItem("bc-lang", state.lang);
       localStorage.setItem("bc-channel", state.channel);
+      localStorage.setItem("bc-type", String(state.typeSize));
     } catch (e) {}
     try {
       var u = new URL(location.href);
@@ -368,9 +377,18 @@
     try {
       l = l || localStorage.getItem("bc-lang");
       c = c || localStorage.getItem("bc-channel");
+      var ts = localStorage.getItem("bc-type");
+      if (ts === "1" || ts === "2" || ts === "3") state.typeSize = Number(ts);
     } catch (e) {}
     if (LANGS.indexOf(l) >= 0) state.lang = l;
     if (c === "delivery" || c === "restaurant") state.channel = c;
+  }
+  function applyTypeSize() {
+    document.body.classList.remove("type-1", "type-2", "type-3");
+    document.body.classList.add("type-" + state.typeSize);
+    document.querySelectorAll("[data-type]").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(Number(b.getAttribute("data-type")) === state.typeSize));
+    });
   }
   var pillsReady = false;
   function paint() {
@@ -399,6 +417,18 @@
         save();
         paint();
         window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+      var typeBtn = e.target.closest("[data-type]");
+      if (typeBtn) {
+        e.preventDefault();
+        var next = Number(typeBtn.getAttribute("data-type"));
+        if (next === 1 || next === 2 || next === 3) {
+          state.typeSize = next;
+          save();
+          applyTypeSize();
+          snapPills(false);
+        }
         return;
       }
       var tab = e.target.closest("#menu-index .tab");

@@ -374,8 +374,29 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
   flex-wrap: wrap;
   margin-bottom: 10px;
 }
-.carta-tools .seg { flex: 1 1 240px; max-width: 420px; }
-.carta-tools .seg button { flex: 1; min-height: 40px; text-transform: uppercase; letter-spacing: 0.08em; }
+.carta-tools .seg {
+  flex: 1 1 240px;
+  max-width: 420px;
+  padding: 4px;
+  gap: 0;
+  background: var(--paper);
+  border: 1px solid rgba(29, 33, 28, 0.08);
+  box-shadow: 0 1px 2px rgba(29, 33, 28, 0.06), 0 8px 22px rgba(29, 33, 28, 0.12);
+}
+.carta-tools .seg .pill-thumb {
+  background: var(--cream);
+  box-shadow: 0 1px 8px rgba(29, 33, 28, 0.12);
+}
+.carta-tools .seg button {
+  flex: 1;
+  min-height: 40px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.carta-tools .seg button[aria-pressed="true"],
+.carta-tools .seg button[aria-pressed="true"]:hover {
+  color: var(--ink);
+}
 .carta-sticky + .wrap { padding-top: 20px; }
 .index {
   display: flex;

@@ -277,14 +277,12 @@
   function renderCarta() {
     var host = document.getElementById("menu-body");
     var index = document.getElementById("menu-index");
-    var title = document.getElementById("menu-title");
     if (!host) return;
     lastTab = "";
     var list = items();
     var cats = catsOf(list);
     host.innerHTML = "";
     if (index) index.innerHTML = "";
-    if (title) title.textContent = state.channel === "delivery" ? t("ch.take") : t("ch.rest");
     cats.forEach(function (c, i) {
       var rows = list.filter(function (d) { return d.cat === c; }).sort(function (a, b) { return a.orden - b.orden; });
       var block = document.createElement("section");

@@ -390,7 +390,14 @@
       b.setAttribute("aria-pressed", String(Number(b.getAttribute("data-type")) === state.typeSize));
     });
     var fabBtn = document.getElementById("typeFabBtn");
-    if (fabBtn) fabBtn.style.fontSize = ({ 1: "16px", 2: "20px", 3: "24px" })[state.typeSize];
+    if (fabBtn) fabBtn.style.fontSize = ({ 1: "20px", 2: "24px", 3: "28px" })[state.typeSize];
+  }
+  function popTypeFab() {
+    var fab = document.getElementById("typeFab");
+    if (!fab) return;
+    fab.classList.remove("is-type-enter");
+    void fab.offsetWidth;
+    fab.classList.add("is-type-enter");
   }
   function setTypeOpen(open) {
     var fab = document.getElementById("typeFab");
@@ -535,11 +542,13 @@
             clearTimeout(typeIdle);
             typeIdle = setTimeout(function () {
               document.body.classList.remove("is-type-away");
-            }, 900);
+              popTypeFab();
+            }, 700);
           }
         }
       });
     }, { passive: true });
+    if (document.getElementById("typeFab")) setTimeout(popTypeFab, 400);
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();

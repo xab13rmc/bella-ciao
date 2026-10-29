@@ -238,20 +238,12 @@
     if (h) document.documentElement.style.setProperty("--header-h", h.offsetHeight + "px");
     var bar = document.querySelector(".carta-sticky");
     if (bar) document.documentElement.style.setProperty("--carta-bar", bar.offsetHeight + "px");
-    snapPills();
   }
   function snapPills(instant) {
     document.querySelectorAll(".seg, .langs").forEach(function (group) {
       var on = group.querySelector("[aria-pressed='true']");
-      if (!on) return;
       var thumb = group.querySelector(".pill-thumb");
-      if (!thumb) {
-        thumb = document.createElement("span");
-        thumb.className = "pill-thumb";
-        thumb.setAttribute("aria-hidden", "true");
-        group.insertBefore(thumb, group.firstChild);
-        instant = true;
-      }
+      if (!on || !thumb) return;
       if (instant) thumb.style.transition = "none";
       thumb.style.width = on.offsetWidth + "px";
       thumb.style.height = on.offsetHeight + "px";
@@ -297,10 +289,15 @@
     if (LANGS.indexOf(l) >= 0) state.lang = l;
     if (c === "delivery" || c === "restaurant") state.channel = c;
   }
+  var pillsReady = false;
   function paint() {
     translate();
     renderCarta();
     markNav();
+    requestAnimationFrame(function () {
+      snapPills(!pillsReady);
+      pillsReady = true;
+    });
   }
   function bind() {
     document.addEventListener("click", function (e) {

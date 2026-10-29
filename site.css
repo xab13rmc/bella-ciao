@@ -86,6 +86,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
 .btn-ghost-dark { background: var(--paper); color: var(--ink); border: 1px solid var(--line); }
 .btn-ghost-dark:hover { background: var(--cream); }
 .btn-call { min-height: 40px; padding: 0 16px; font-size: 14px; }
+.btn-call svg { flex: 0 0 auto; display: block; }
 
 .site-header {
   position: sticky;
@@ -160,12 +161,15 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
 .seg, .langs { position: relative; isolation: isolate; }
 .pill-thumb {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
   border-radius: var(--radius);
   background: var(--ink);
   pointer-events: none;
   z-index: 0;
-  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), width 0.28s cubic-bezier(0.22, 1, 0.36, 1), height 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.32s cubic-bezier(0.32, 0.72, 0, 1), width 0.32s cubic-bezier(0.32, 0.72, 0, 1), height 0.32s cubic-bezier(0.32, 0.72, 0, 1);
 }
 .seg {
   display: flex;
@@ -180,11 +184,11 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
   border: 0; background: transparent; cursor: pointer;
   border-radius: var(--radius); padding: 7px 12px;
   font: 600 12px/1 var(--sans); color: var(--ink-soft);
-  transition: color 0.18s ease, background-color 0.18s ease;
+  transition: color 0.2s ease;
 }
-.seg button:hover { color: var(--ink); background: rgba(255,253,252,0.7); }
+.seg button:hover { color: var(--ink); }
 .seg button[aria-pressed="true"],
-.seg button[aria-pressed="true"]:hover { background: var(--ink); color: #fff; }
+.seg button[aria-pressed="true"]:hover { background: transparent; color: #fff; }
 .langs {
   display: flex;
   align-items: center;
@@ -193,6 +197,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
   padding: 4px;
   border-radius: var(--radius);
   border: 1px solid var(--line);
+  flex: 0 0 auto;
 }
 .langs button {
   appearance: none;
@@ -208,12 +213,12 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
   border-radius: var(--radius);
   font: 600 12px/1 var(--sans);
   color: var(--ink-soft);
-  transition: color 0.18s ease, background-color 0.18s ease;
+  transition: color 0.2s ease;
 }
-.langs button:hover { background: var(--cream); color: var(--ink); }
+.langs button:hover { color: var(--ink); }
 .langs button[aria-pressed="true"],
 .langs button[aria-pressed="true"]:hover {
-  background: var(--ink);
+  background: transparent;
   color: #fff;
 }
 
@@ -443,6 +448,11 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; margin: 0; letter-spac
   .hero-actions .btn { flex: 1 1 100%; }
   .langs { gap: 2px; padding: 3px; }
   .langs button { min-width: 28px; height: 28px; padding: 0 6px; }
+  .btn-call {
+    width: 40px;
+    min-width: 40px;
+    padding: 0;
+  }
   .btn-call span { display: none; }
 }
 

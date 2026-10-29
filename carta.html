@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="site.css?v=23" />
+  <link rel="stylesheet" href="site.css?v=24" />
 </head>
 <body class="page-carta">
   <header class="site-header">
@@ -53,19 +53,10 @@
     <div class="wrap">
       <div class="carta-tools">
         <h1 class="carta-title" data-i18n="menu.k">La nostra carta</h1>
-        <div class="carta-actions">
-          <div class="type-size" role="group" aria-labelledby="typeSizeLabel">
-            <span id="typeSizeLabel" class="visually-hidden" data-i18n="type.aria">Mida del text</span>
-            <span class="pill-thumb" aria-hidden="true"></span>
-            <button type="button" data-type="1" aria-pressed="true" data-i18n-aria="type.s">A</button>
-            <button type="button" data-type="2" aria-pressed="false" data-i18n-aria="type.m">A</button>
-            <button type="button" data-type="3" aria-pressed="false" data-i18n-aria="type.l">A</button>
-          </div>
-          <div class="seg" role="group" aria-label="Canal">
-            <span class="pill-thumb" aria-hidden="true"></span>
-            <button type="button" data-channel="restaurant" aria-pressed="true" data-i18n="ch.rest">Restaurant</button>
-            <button type="button" data-channel="delivery" aria-pressed="false" data-i18n="ch.take">Per emportar</button>
-          </div>
+        <div class="seg" role="group" aria-label="Canal">
+          <span class="pill-thumb" aria-hidden="true"></span>
+          <button type="button" data-channel="restaurant" aria-pressed="true" data-i18n="ch.rest">Restaurant</button>
+          <button type="button" data-channel="delivery" aria-pressed="false" data-i18n="ch.take">Per emportar</button>
         </div>
       </div>
       <nav class="index" id="menu-index" aria-label="Categories"></nav>
@@ -103,7 +94,17 @@
       </div>
     </div>
   </footer>
+  <div class="type-fab" id="typeFab">
+    <button type="button" class="type-fab-btn" id="typeFabBtn" aria-expanded="false" aria-controls="typeSize" data-i18n-aria="type.aria">A</button>
+    <div class="type-size" id="typeSize" role="group" aria-labelledby="typeSizeLabel">
+      <span id="typeSizeLabel" class="visually-hidden" data-i18n="type.aria">Mida del text</span>
+      <span class="pill-thumb" aria-hidden="true"></span>
+      <button type="button" data-type="1" aria-pressed="true" data-i18n-aria="type.s">A</button>
+      <button type="button" data-type="2" aria-pressed="false" data-i18n-aria="type.m">A</button>
+      <button type="button" data-type="3" aria-pressed="false" data-i18n-aria="type.l">A</button>
+    </div>
+  </div>
   <script src="menu-data.js"></script>
-  <script src="app.js?v=23"></script>
+  <script src="app.js?v=24"></script>
 </body>
 </html>

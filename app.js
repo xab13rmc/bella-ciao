@@ -389,6 +389,19 @@
     document.querySelectorAll("[data-type]").forEach(function (b) {
       b.setAttribute("aria-pressed", String(Number(b.getAttribute("data-type")) === state.typeSize));
     });
+    var fabBtn = document.getElementById("typeFabBtn");
+    if (fabBtn) fabBtn.style.fontSize = ({ 1: "16px", 2: "20px", 3: "24px" })[state.typeSize];
+  }
+  function setTypeOpen(open) {
+    var fab = document.getElementById("typeFab");
+    if (!fab) return;
+    fab.classList.toggle("is-open", open);
+    var btn = document.getElementById("typeFabBtn");
+    if (btn) btn.setAttribute("aria-expanded", String(open));
+    if (open) {
+      document.body.classList.remove("is-type-away");
+      requestAnimationFrame(function () { snapPills(true); });
+    }
   }
   var pillsReady = false;
   function paint() {
@@ -419,6 +432,13 @@
         window.scrollTo({ top: 0, behavior: "smooth" });
         return;
       }
+      var fabBtn = e.target.closest("#typeFabBtn");
+      if (fabBtn) {
+        e.preventDefault();
+        var fab = document.getElementById("typeFab");
+        setTypeOpen(fab && !fab.classList.contains("is-open"));
+        return;
+      }
       var typeBtn = e.target.closest("[data-type]");
       if (typeBtn) {
         e.preventDefault();
@@ -427,10 +447,11 @@
           state.typeSize = next;
           save();
           applyTypeSize();
-          snapPills(false);
+          setTypeOpen(false);
         }
         return;
       }
+      if (!e.target.closest("#typeFab")) setTypeOpen(false);
       var tab = e.target.closest("#menu-index .tab");
       if (tab) {
         e.preventDefault();
@@ -491,6 +512,7 @@
     var spyTick = 0;
     var lastY = window.scrollY;
     var navAway = false;
+    var typeIdle = 0;
     window.addEventListener("resize", function () { translate(); markNav(); markCartaSection(); snapPills(true); });
     window.addEventListener("scroll", function () {
       if (spyTick) return;
@@ -507,6 +529,14 @@
           else if (y < lastY - 6) navAway = false;
           document.body.classList.toggle("is-nav-away", navAway);
           lastY = y;
+          if (document.getElementById("typeFab")) {
+            setTypeOpen(false);
+            document.body.classList.add("is-type-away");
+            clearTimeout(typeIdle);
+            typeIdle = setTimeout(function () {
+              document.body.classList.remove("is-type-away");
+            }, 900);
+          }
         }
       });
     }, { passive: true });

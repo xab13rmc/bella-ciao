@@ -492,11 +492,33 @@
       }
     });
   }
+  function updateGoogleReviews() {
+    var summary = document.getElementById("google-review-summary");
+    var fallback = document.getElementById("google-review-fallback");
+    var rating = document.getElementById("google-rating");
+    var count = document.getElementById("google-review-count");
+    if (!summary || !fallback || !rating || !count) return;
+    fetch("google-rating.json?_=" + Date.now(), { headers: { "Accept": "application/json" } })
+      .then(function (r) { if (!r.ok) throw new Error("Google rating unavailable"); return r.json(); })
+      .then(function (data) {
+        var updated = Date.parse(data.updatedAt || "");
+        if (typeof data.rating !== "number" || typeof data.reviewCount !== "number" || !updated || Date.now() - updated > 172800000) throw new Error("Incomplete or stale Google rating");
+        rating.textContent = data.rating.toLocaleString(state.lang === "en" ? "en" : "ca", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+        count.textContent = data.reviewCount.toLocaleString(state.lang === "en" ? "en" : "ca");
+        summary.hidden = false;
+        fallback.hidden = true;
+      })
+      .catch(function () {
+        summary.hidden = true;
+        fallback.hidden = false;
+      });
+  }
   function init() {
     load();
     bind();
     cookies();
     translate();
+    updateGoogleReviews();
     function ready(data) { menu = data || []; paint(); }
     function fallback() {
       if (window.BC_MENU && window.BC_MENU.length) ready(window.BC_MENU);
